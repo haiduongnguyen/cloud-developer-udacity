@@ -7,9 +7,17 @@ import bodyParser from 'body-parser';
 
 import { V0MODELS } from './controllers/v0/model.index';
 
+
 (async () => {
+
+  console.log("here");
   await sequelize.addModels(V0MODELS);
-  await sequelize.sync();
+  console.log("here");
+  await sequelize.sync() ;
+  // .then((value) => {console.log('suc')})
+  // .catch((error) => {
+  //   console.error('fail')});
+  // await sequelize.sync()
 
   const app = express();
   const port = process.env.PORT || 8080; // default port to listen
@@ -31,6 +39,7 @@ import { V0MODELS } from './controllers/v0/model.index';
   } );
   
 
+  console.log("here")
   // Start the Server
   app.listen( port, () => {
       console.log( `server running http://localhost:${ port }` );
